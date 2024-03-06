@@ -49,8 +49,9 @@ ComicBook.init(
         timestamps: false, // Set to false to remove `created_at` and `updated_at` fields
         freezeTableName: true, // Prevent sequelize from renaming the table
         underscored: true, // converts isPaperback to is_paperback (snake case) in our tables 
-        modelName: 'comicbook'
+        modelName: 'comicbooks'
     }
 );
 
 module.exports = ComicBook;
+// personal note >> using the ComicBook as the main model since all movies or tv shows are based off comic books 
