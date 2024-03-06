@@ -30,7 +30,7 @@ Movies.init(
             allowNull: false
           },
         filmLength: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false
           },
         comicBook_id: {
@@ -39,6 +39,12 @@ Movies.init(
                 model: 'comicbooks', // points to the ComicBook model
                 key: 'id', // where the key is equal to the id column
             },
+        },
+        info: {
+            type: DataTypes.VIRTUAL(DataTypes.STRING, ['title', 'director', 'releaseDate', 'filmLength' ]),
+            get() {
+                return `${this.getDataValue('title')} was directed by:${this.getDataValue('director')} and was released on ${this.getDataValue('releaseDate')} and a total of ${this.getDataValue('filmLength')} mins long`
+            }
         }
     },
     {
