@@ -32,17 +32,25 @@ ComicBook.init(
         isbn: {
             type: DataTypes.STRING
           },
-          pages: {
+        pages: {
             type: DataTypes.INTEGER
           },
-          edition: {
+        edition: {
             type: DataTypes.INTEGER
           },
         // Will become `is_paperback` in table due to `underscored` flag
-          is_paperback: {
+        is_paperback: {
             type: DataTypes.BOOLEAN,
             allowNull: true
-          }
+        },
+        has_movie: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true
+        },
+        has_show: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true
+        },
     },
     {
         sequelize, // Link to database connection
