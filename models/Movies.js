@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize'); // object destructuring to pull in model and datatypes
 const sequelize = require('../config/connection'); // pull in connection to sequelize 
 
-class Movies extends Model{} // Model is parent class, ComicBook is the child class
+class Movies extends Model{} // Model is parent class, Movies is the child class
 
 // initialize class
 // sequelize ORM, object relational mapping

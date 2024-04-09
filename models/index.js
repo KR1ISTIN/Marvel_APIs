@@ -2,6 +2,7 @@ const ComicBook = require('./ComicBooks');
 const Movies = require('./Movies');
 const TvShows = require('./TvShows');
 
+// creating relationship between "tables"
 ComicBook.hasMany(Movies, {
     foreignKey: 'comicBook_id',
     onDelete: 'CASCADE',
