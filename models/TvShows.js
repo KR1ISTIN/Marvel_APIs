@@ -1,13 +1,13 @@
 const { Model, DataTypes } = require('sequelize'); // object destructuring to pull in model and datatypes
 const sequelize = require('../config/connection'); // pull in connection to sequelize 
 
-class TvShows extends Model{} // Model is parent class, TvShows is the child class
+class Shows extends Model{} // Model is parent class, TvShows is the child class
 
 // initialize class
 // sequelize ORM, object relational mapping
 
 // Define a Sequelize model representing a table
-TvShows.init(
+Shows.init(
     {
     // Define attributes (columns) for the model
       // An `id` is automatically created by Sequelize, though best practice would be to define the primary key ourselves
@@ -33,10 +33,10 @@ TvShows.init(
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        comicBook_id: {
+        comicbook_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'comicbooks', // points to the ComicBook model
+                model: 'comics', // points to the ComicBook model
                 key: 'id', // where the key is equal to the id column
             },
         },
@@ -52,8 +52,8 @@ TvShows.init(
         timestamps: false, // Set to false to remove `created_at` and `updated_at` fields
         freezeTableName: true, // Prevent sequelize from renaming the table
         underscored: true, // converts isPaperback to is_paperback (snake case) in our tables 
-        modelName: 'tvshows'
+        modelName: 'shows'
     }
 );
 
-module.exports = TvShows;
+module.exports = Shows;

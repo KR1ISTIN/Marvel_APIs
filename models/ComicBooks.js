@@ -1,13 +1,13 @@
 const { Model, DataTypes } = require('sequelize'); // object destructuring to pull in model and datatypes
 const sequelize = require('../config/connection'); // pull in connection to sequelize 
 
-class ComicBook extends Model{} // Model is parent class, ComicBook is the child class
+class Comics extends Model{} // Model is parent class, ComicBook is the child class
 
 // initialize class
 // sequelize ORM, object relational mapping
 
 // Define a Sequelize model representing a table
-ComicBook.init(
+Comics.init(
     {
     // Define attributes (columns) for the model
       // An `id` is automatically created by Sequelize, though best practice would be to define the primary key ourselves
@@ -30,13 +30,16 @@ ComicBook.init(
             allowNull: true
         },
         isbn: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false
           },
         pages: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: true
           },
         edition: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: true
           },
         // Will become `is_paperback` in table due to `underscored` flag
         is_paperback: {
@@ -57,9 +60,9 @@ ComicBook.init(
         timestamps: false, // Set to false to remove `created_at` and `updated_at` fields
         freezeTableName: true, // Prevent sequelize from renaming the table
         underscored: true, // converts isPaperback to is_paperback (snake case) in our tables 
-        modelName: 'comicbooks'
+        modelName: 'comics'
     }
 );
 
-module.exports = ComicBook;
+module.exports = Comics;
 // personal note >> using the ComicBook as the main model since all movies or tv shows are based off comic books 

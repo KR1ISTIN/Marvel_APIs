@@ -3,7 +3,7 @@ const routes = require('./routes');
 const sequelize = require('./config/connection');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001; 
 
 //Express middleware: express.json() = to parse JSON data from incoming requests and make it available in req.body for further processing in your routes.
 app.use(express.json());
@@ -14,7 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 
 // turn on connection to db and server
-sequelize.sync({ force: false }).then(() => {
+// ** make sure to create your database first in mysql
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
 

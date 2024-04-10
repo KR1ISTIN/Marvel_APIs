@@ -1,29 +1,29 @@
-const ComicBook = require('./ComicBooks');
+const Comics = require('./ComicBooks');
 const Movies = require('./Movies');
-const TvShows = require('./TvShows');
+const Shows = require('./TvShows');
 
-// creating relationship between "tables"
-ComicBook.hasMany(Movies, {
-    foreignKey: 'comicBook_id',
+//creating relationship between "tables"
+Comics.hasMany(Movies, {
+    foreignKey: 'comicbook_id',
     onDelete: 'CASCADE',
 });
 
-Movies.belongsTo(ComicBook, {
-    foreignKey: 'comicBook_id'
+Movies.belongsTo(Comics, {
+    foreignKey: 'comicbook_id'
 });
 
 
 
-ComicBook.hasMany(TvShows, {
-    foreignKey: 'comicBook_id',
+Comics.hasMany(Shows, {
+    foreignKey: 'comicbook_id',
     onDelete: 'CASCADE',
 });
 
-TvShows.belongsTo(ComicBook, {
-    foreignKey: 'comicBook_id'
+Shows.belongsTo(Comics, {
+    foreignKey: 'comicbook_id'
 });
 
 
 
 
-module.exports = { ComicBook, Movies, TvShows };
+module.exports = { Comics, Shows, Movies };

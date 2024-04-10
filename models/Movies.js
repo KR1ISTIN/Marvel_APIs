@@ -27,16 +27,16 @@ Movies.init(
         },
         releaseDate: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
           },
         filmLength: {
             type: DataTypes.INTEGER,
             allowNull: false
           },
-        comicBook_id: {
+        comicbook_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'comicbooks', // points to the ComicBook model
+                model: 'comics', // points to the Comics model
                 key: 'id', // where the key is equal to the id column
             },
         },

@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS marvel_db;
-CREATE DATABASE marvel_db;
+DROP DATABASE IF EXISTS marvelconn_db;
+CREATE DATABASE marvelconn_db;
 
